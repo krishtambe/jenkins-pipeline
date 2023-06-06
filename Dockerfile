@@ -1,5 +1,5 @@
 FROM  centos:latest
-MAINTAINER nelajala16@gmail.com
+MAINTAINER mailtomohan.in@gmail.com
 RUN cd /etc/yum.repos.d/
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
@@ -11,4 +11,6 @@ RUN unzip photogenic.zip
 RUN cp -rvf photogenic/* .
 RUN rm -rf photogenic photogenic.zip
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-EXPOSE 80 22 #this ports are exposed to enable http and to SSH
+EXPOSE 80 
+EXPOSE 22
+
